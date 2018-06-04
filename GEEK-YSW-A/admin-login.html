@@ -1,0 +1,248 @@
+<html style="height:100%;background-color:#fafafa;"><head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no">
+<meta name="MobileOptimized" content="240">
+<meta name="Iphone-content" content="320">
+<title>会员激活 - 会员管理中心</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/msvod_2.css"> 
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/reg.css">
+<!-- 这里是自定义皮肤地址 -->
+<style type="text/css">
+#head{color:#DA2758; background:#fff;}
+#head .ico-back {border:#DA2758 solid;border-width:2px 0 0 2px;}
+.verify-msg .value {color:#990253;}
+.verify-msg .key {color:#990253;}
+.tips a.lnk {color:#990253;}
+.smsbtn {color:#990253;border:1px solid #990253;}
+.top-tips span{color:#990253;}
+.smsToken-form li .item-right .smsInput-value {color:#990253;}
+li .verified-value span {color:#990253;}
+.u-form li .item-right .forget-password {border:1px solid #990253;}
+.u-form li .item-right .forget-password span {color:#990253;}
+.have-signIned a {color:#990253;}
+.submit-btn .btn-big{background:#DA2758;}
+.submit-btn .btn-big{border:1px solid #DA2758;}
+</style>
+
+<link href="css/wap_reg.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.submit,.pass-logo a,.form-login .input label,.item span,#content h2 span em{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline;}
+.blue,.blue a{color:#377abe},.submit input{cursor:hand;}
+.log{line-height:24px; height:24px;float:right; font-size:12px}
+.log span{color:#ced9e7}
+.log a{color:#049;text-decoration: none;}
+.log a:hover{text-decoration: underline;}
+#header{ height:94px; background:url(images/member/h.png) repeat-x}
+#header .logo{ padding-right:100px;float:left;background:url(images/member/login-logo.png) no-repeat right 2px;}
+#header .content{width:100%; margin:auto; height:60px;padding:10px 0 0 0}
+#content{width:100%; margin:auto; padding:0px 0 0 0; overflow:auto;
+background: #fff;
+border-top: 2px solid #e4e4e4;
+border-bottom: 2px solid #e4e4e4;
+}
+.form-login{width:420px; padding-left:40px}
+#content h2{font-size:25px;color:#494949;border-bottom: 1px dashed #CCC;padding-bottom:3px; margin-bottom:10px}
+#content h2 span{font-size:12px; font-weight:normal}
+#content h2 span em{background: url(images/member/order.png) no-repeat 0px -16px; width:15px; height:15px; line-height:15px; text-align:center; margin-right:5px; color:#FFF}
+#content h2 span.on{ color:#333; font-weight:700}
+#content h2 span.on em{background-position: 0px 0px;}
+.form-login .input{ padding:10px 0; overflow:hidden; clear:both;border-bottom:1px solid #e5e5e5;}
+.form-login .input label{ width:84px;font-size:20px; color:#8c8686; text-align:right; float:left}
+.form-login .input .form{ width:560px; float:left}
+.take,.reg{padding:0 0 0 84px}
+.take .submit{margin-top:10px}
+.form-login .hr{background: url(images/member/line.png) no-repeat left center; height:50px;}
+.form-login .hr hr{ display:none}
+.form-reg{padding:10px 0 0 0px; width:100%;height: 600px;}
+.form-login{padding:10px 0 0 0px; width:100%;height:300px;}
+.form-reg .input label{ width:80px}
+.form-reg .input label.type{ width:auto; color:#000; padding-right:10px}
+.form-reg .reg{padding:10px 0 0 0px}
+.form-reg .reg .submit{ margin-bottom:5px}
+.submit{padding-left:3px}
+.submit,.submit input{ background: url(images/member/but.png) no-repeat; height:29px;width:auto;_width:0;overflow:visible !ie}
+.submit input{background-position: right top; border:none; padding:0 10px 0 7px; font-size:14px}
+.reg{ color:#666; line-height:24px}
+.reg .submit{background-position: left -35px; height:35px}
+.reg .submit input{background-position: right -35px; font-weight:700; color:#fff; height:35px}
+.reg-auto{ padding:10px 0 0 20px}
+.reg-auto p{ margin-bottom:10px; color:#666;}
+.col-1{position:relative; float:right; border:1px solid #c4d5df; zoom:1;background: url(images/member/member_title.png) repeat-x; width:310px; margin: auto; height:304px}
+.col-1 span.o1,
+.col-1 span.o2,
+.col-1 span.o3,
+.col-1 span.o4{position:absolute;width:3px;height:3px;background: url(images/fillet.png) no-repeat}
+.col-1 span.o1{background-position: left -6px; top:-1px; left:-1px}
+.col-1 span.o2{background-position: right -6px; top:-1px; right:-1px}
+.col-1 span.o3{background-position: left bottom; bottom:-1px; left:-1px}
+.col-1 span.o4{background-position: right bottom; bottom:-1px; right:-1px;}
+.col-1 .title{color:#386ea8; padding:5px 10px 3px}
+.col-1 div.content{padding:0px 10px 10px}
+.col-1 div.content h5{background: url(images/member/ext-title.png) no-repeat 2px 10px; height:34px}
+.col-1 div.content h5 strong{ visibility: hidden}
+.pass-logo{ margin:auto; width:261px; padding-top:15px}
+.pass-logo a img{ border:1px solid #ddd}
+.pass-logo a{border:3px solid #fff}
+.pass-logo a.logo,
+.pass-logo a:hover{border:3px solid #e8f1f1;}
+.pass-logo p{border-top: 1px solid #e1e4e8; padding-top:15px}
+.item{padding:10px 0; vertical-align:middle; margin-bottom:10px}
+.item span{ color:#8c8686}
+.point{border:1px solid #ffbf7a; background:#fffced; margin-bottom:10px; margin-right:100px;margin-left:50px;position:relative}
+.point .content{padding:8px 10px;}
+.point .content .title{color:#ff8400}
+.point .content p{color:#777; text-indent:20px}
+.point span.o1,
+.point span.o2,
+.point span.o3,
+.point span.o4{position:absolute;width:3px;height:3px;background: url(images/fillet.png) no-repeat; overflow:hidden}
+.point span.o1{background-position: left top; top:-1px; left:-1px}
+.point span.o2{background-position: right top; top:-1px; right:-1px}
+.point span.o3{background-position: left -3px; bottom:-1px; left:-1px}
+.point span.o4{background-position: right -3px; bottom:-1px; right:-1px;}
+.submit button.hqyz{margin:0px; padding:0px; border:none; cursor:pointer; }
+.submit button.hqyz{
+background-position: 100% 0%;
+border: medium none;
+font-size: 12px;
+padding: 0 10px 0 7px;
+}
+.submit button.hqyz{
+background: url("images/member/but.png") no-repeat 100% 0px;
+height: 29px;
+width: auto;
+}
+#mobile_div input{*margin-bottom:12px;*_padding:0px 0px 6px 0px}
+</style>
+</head>
+<body><div style="display: none; position: absolute;" class=""><div class="aui_outer"><table class="aui_border"><tbody><tr><td class="aui_nw"></td><td class="aui_n"></td><td class="aui_ne"></td></tr><tr><td class="aui_w"></td><td class="aui_c"><div class="aui_inner"><table class="aui_dialog"><tbody><tr><td colspan="2" class="aui_header"><div class="aui_titleBar"><div class="aui_title" style="cursor: move; display: block;"></div><a class="aui_close" href="javascript:/*artDialog*/;" style="display: block;">×</a></div></td></tr><tr><td class="aui_icon" style="display: none;"><div class="aui_iconBg" style="background: none;"></div></td><td class="aui_main" style="width: auto; height: auto;"><div class="aui_content" style="padding: 20px 25px;"></div></td></tr><tr><td colspan="2" class="aui_footer"><div class="aui_buttons" style="display: none;"></div></td></tr></tbody></table></div></td><td class="aui_e"></td></tr><tr><td class="aui_sw"></td><td class="aui_s"></td><td class="aui_se" style="cursor: se-resize;"></td></tr></tbody></table></div></div>
+<div id="wrap" style="">
+<div id="head"> <a href="/index.html" class="go-back-wap" ><i class="ico-back"></i></a>
+<p id="navtit">激活</p>
+</div>
+<div class="mobile-reg-wrapper">
+<input type="hidden" name="siteid" value="1">
+<section class="content input_account">
+<div id="content">
+<form method="post" style="width:90%;" action="" id="myform" name="myform">
+<input type="hidden" name="siteid" value="1">
+<div class="col-left form-login">
+<div class="input"><label>验证码：</label><input type="text" id="username" name="username"
+	 style="width:70%;height:40px;" class="input-text"><br>
+</div>
+<div class="input"><label>1d：</label><input type="text" id="password"  readonly="readonly"
+	style="width:70%;height:40px;" class="input-text"><br>
+</div>
+<div class="input"><label>15d：</label><input type="text" id="password15" readonly="readonly"
+	style="width:70%;height:40px;" class="input-text"><br>
+</div>
+<div class="input"><label>30d：</label><input type="text" id="password30" readonly="readonly"
+	style="width:70%;height:40px;" class="input-text"><br>
+</div>
+<div class="input"><label>180d：</label><input type="text" id="password180" readonly="readonly"
+	style="width:70%;height:40px;" class="input-text"><br>
+</div>
+
+<div class="input" style="text-align:center; font-size: 16px;/*color: #DA2758;*/" >
+	<span  style="margin:0 auto;" id="concatQQ">
+		
+	</span>
+</div>
+</div>
+<div class="submit-btn">
+<input  id="dosubmit" class="btn-big do-login" readonly="readonly" value="马上激活">
+
+</div>
+<div><br></div>
+
+ 
+</form></div></section>
+
+ 
+<section style="margin-top:35px;"><b>&nbsp;</b></section>
+
+
+
+
+</div>
+
+</div></body>
+<script type="text/javascript" src="js/mui.min.js" ></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="js/jquery.md5.js" ></script>
+<script type="text/javascript" src="js/cache.js" ></script>
+<script type="text/javascript" src="js/check.vip.js"></script>
+<script type="application/javascript">
+	var time_end_ms = time_end_ms;
+	(function($m, $) {
+		/*$("#concatQQ").html("没有激活码？联系"+cache.getJSON("onlineConfig").contact);
+		var cd_info = localStorage.getItem("cd_info");
+		var now = new Date().getTime();
+		var cdInfo = JSON.parse(cd_info);
+		var vip = false;
+		if(cdInfo){}else{cdInfo={};};
+		if(cdInfo.endTime){
+			if(now>parseInt(cdInfo.endTime)){//3天过期
+				localStorage.removeItem("cd_info");
+				cdInfo={};
+			}else{
+				vip= true;
+			}
+		}
+		if(!vip){
+			var org = now.toString().substr(0,6)+now;
+			var hc = hashCode(org).toString().substr(1,7);
+			cdInfo.cdkey = hc;
+			//cdInfo.time=new Date().getTime();
+			localStorage.setItem("cd_info",JSON.stringify(cdInfo))
+		}else{
+			var endTime = parseInt(cdInfo.endTime);
+			$("#passwordTip").html("到期时间为："+new Date(endTime).toLocaleString());
+			$("#dosubmit").val("已激活");
+			$("#dosubmit").attr("disabled","disabled");
+		}
+		$("#username").val(cdInfo.cdkey);
+		$("#password").val(cdInfo.password);*/2022934
+		$(document).on("click","#dosubmit",function(){
+			//var password = $("#password").val();
+			//var cd_info = localStorage.getItem("cd_info");
+			var cdInfo = {};
+			cdInfo.cdkey = 	$("#username").val();
+			//cdInfo.cdkey
+			var pwd = getVipInfoJSON(cdInfo.cdkey,1);
+			var pwd15 = getVipInfoJSON(cdInfo.cdkey,15);
+			var pwd30 = getVipInfoJSON(cdInfo.cdkey,30);
+			var pwd180 = getVipInfoJSON(cdInfo.cdkey,180);
+			console.log("1d:"+pwd);
+			console.log("30d:"+pwd30);
+			console.log("180d:"+pwd180);
+			$("#password").val(pwd);
+			$("#password15").val(pwd15);
+			$("#password30").val(pwd30);
+			$("#password180").val(pwd180);
+		});
+		$m('body').on('tap', '.go-back-wap', function() {
+			//var ws=plus.webview.currentWebview();
+			//plus.webview.close(ws);
+			var page = plus.webview.create("index.html", 1);
+			
+			page.show();
+		});
+	})(mui,jQuery);
+	
+	function hashCode(str){
+	    var hash = 0;
+	    if (str.length == 0) return hash;
+	    for (i = 0; i < str.length; i++) {
+	        char = str.charCodeAt(i);
+	        hash = ((hash<<5)-hash)+char;
+	        hash = hash & hash; // Convert to 32bit integer
+	    }
+	    return hash;
+	}
+</script>
+</html>

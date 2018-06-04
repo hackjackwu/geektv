@@ -1,0 +1,33 @@
+{
+  "index.html": {
+    "refer": [
+      "video_index.html",
+      "login.html",
+      "init.html"
+    ],
+    "resources": []
+  },
+  "video_index.html": {
+    "refer": [
+      "index.html"
+    ],
+    "resources": []
+  },
+  "init.html": {
+    "refer": [
+      "index.html"
+    ],
+    "resources": []
+  },
+  "login.html": {
+    "refer": [
+      "index.html"
+    ],
+    "resources": []
+  },
+  "admin-login.html": {
+    "refer": [
+      "index.html"
+    ]
+  }
+}

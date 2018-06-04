@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AV磁力連結分享 - 日本成人影片資料庫</title>
+<meta name="keywords" content="AV磁力連結,線上AV,磁力連結分享,番號搜尋,日本成人影片">
+<meta name="description" content="線上日本成人影片磁力連結分享站，番號搜尋共享AV磁力連結。">
+<link href='../css/bootstrap.min.css' rel='stylesheet'>
+<link href='../css/bootstrap-theme.min.css' rel='stylesheet'>
+<link href='../css/magnific-popup.css' rel='stylesheet'>
+<link rel='stylesheet' type='text/css' href='../css/base.css'>
+<link rel='stylesheet' type='text/css' href='../css/nav.overlay.css' >
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.css"/>
+
+
+<script type="text/javascript" src='../js/jquery.min.js'></script>
+<script type="text/javascript" src='../js/bootstrap.min.js'></script>
+<script type="text/javascript" src='../js/jquery.magnific-popup.min.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.min.js'></script>
+<script type="text/javascript" src='../js/bootstrap-hover-dropdown.js'></script>
+<script type="text/javascript" src='../js/jquery.masonry.min.js' ></script>
+<script type="text/javascript" src='../js/jquery.md5.js'></script>
+<!--	<script type="text/javascript" src='../js/focus.js' ></script> 
+<script type="text/javascript" src="../js/nav.overlay.js" ></script> -->
+<script type="text/javascript" src="../js/mui.min.js" ></script>
+<script type="text/javascript" src="../js/mobile/layer.js" ></script>
+<script type="text/javascript" src="../js/naxhr.js" ></script>
+<script type="text/javascript" src="../js/localutil.js" ></script>
+
+<style>
+	.hidden-ele{display: none;}
+	.title_span{ overflow:hidden; text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;};
+</style>
+</head>
+<body style="min-width: 340px;"  >
+
+<!--底部导航 ////////////////////////////////////////////////// -->
+<div id="menu_div" class="overlay overlay-contentscale">
+    <div class="row">
+        <div class="col-xs-12 text-center ptb20">
+                 <div class="input-group col-xs-offset-2 col-xs-8">
+                      <input id="search-input-mobile" type="text" class="form-control" placeholder="搜尋 識別碼, 影片, 演員">
+                      <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit" onclick="searchs('search-input-mobile')">搜尋</button>
+                      </span>
+                 </div>
+        </div>             
+        <div class="col-xs-6 text-center accl" fun="loadHref" data="https://www.javbus2.pw/"><a >有碼</a></div>
+        <!--<div class="col-xs-6 text-center accl"  fun="loadHref" data="https://www.javbus2.pw/uncensored"><a>無碼</a></div>-->   
+        <div class="col-xs-6 text-center accl"  fun="openHref" data="./genre.html"><a>有碼類別</a></div>
+        <!--<div class="col-xs-6 text-center accl"  fun="openHref" data="./ungenre.html"><a>無碼類別</a></div>-->
+        <div class="col-xs-6 text-center accl" fun="loadHref" data="https://www.javbus2.pw/actresses"><a>有碼女優</a></div>
+        <!--<div class="col-xs-6 text-center accl" fun="loadHref" data="https://www.javbus2.pw/uncensored/actresses"><a>無碼女優</a></div>-->
+		<!--<div class="col-xs-6 text-center accl" fun="loadHref" data="https://www.javbus.xyz/"><a>歐美</a></div>-->
+        <div class="col-xs-6 text-center accl" fun="toMember"><a >我的</a></div>
+    
+       <div class="col-xs-12 text-center overlay-close accl" fun="showOrCloseMenu">
+          <i class="glyphicon glyphicon-remove"></i>
+       </div>  
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-top top-bar" style="z-index:2">
+
+    <div class="container-fluid">
+        <div class="navbar-header mh50">
+
+        <a id="back" class="btn btn-default accl" fun="fun_back" style="margin-top: 8px;"
+        	 href="javascript:window.history.back()">
+       		<span class="glyphicon glyphicon-share-alt flipx"></span>
+        </a>
+         <div class="btn-group pull-left visible-xs-inline" role="group" style="margin:8px 8px 0 8px;">
+ 		</div>
+ 		         <div class="btn-group pull-right visible-xs-inline accl" fun="toMember" role="group" style="margin:8px 8px 0 0;">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img class="avatar" style="width:22px; height:22px;" 
+                    	src="../img/noavatar_small.gif">                 </button>
+            </div>
+          
+ 
+        </div>
+ 
+    
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+
+</nav>
+
+<div class="row visible-xs-inline footer-bar open" >
+    <div class="col-xs-3 text-center accl" fun="showOrCloseMenu">
+       <!-- <a id="menu" class="btn btn-default trigger-overlay-a">
+        	<span class="glyphicon glyphicon-align-justify"></span></a>-->
+    </div>
+    <div class="col-xs-3 text-center">
+         </div>
+    <div class="col-xs-3 text-center">
+           <!-- <a id="prev" class="btn btn-default" href="/page/2" style="display:none"><span class="glyphicon glyphicon-chevron-right"></span></a>-->
+        </div>    
+    <div class="col-xs-3 text-center accl" fun="returnTop">
+        <a class="btn btn-default">
+        	<span class="glyphicon glyphicon-chevron-up flipx"></span></a>
+    </div> 
+</div>    
+
+<!--
+	作者：wuyifang@protonmail.com
+	时间：2018-05-12
+	描述：list页面 start
+-->
+<link rel='stylesheet' type='text/css' href='../css/main.css'>
+<script src="../js/jquery.masonry.min.js"></script>
+<div class="container-fluid hidden-ele" >
+<div class="row">
+<div id="waterfall" >
+	
+	
+		</div>
+	</div>
+</div>
+<div class="text-center hidden-ele">
+    <ul id="ul_page" class="pagination pagination-lg">
+    	
+    </ul>
+</div>
+<!--
+	作者：wuyifang@protonmail.com
+	时间：2018-05-12
+	描述：list页面end
+-->
+<script type="text/javascript">
+	var pageno = localutil.getInt("pageno",1);
+	//localutil.del("open_url")
+	var url = 	(localutil.get("open_url")||"https://www.javbus2.pw/actresses")
+	if(url.indexOf("genre")+url.indexOf("actresses")+url.indexOf("star")<=0){
+		url = url+"/page/"+pageno;
+	}else{
+		url = url+"/"+pageno;
+	}
+	layer.open({shadeClose: true,type: 2});
+	(function(mui,xhr,$){
+		mui.plusReady(function() {
+			xhr.send({"url":url,
+			"callback":indexPageCallback})
+		});
+		function indexPageCallback(respon){
+			flushPage(respon.txt)
+		}
+		function flushPage(txt){
+			var ind = 0;
+			var hmt = "";
+			txt = $.parseHTML(txt);
+			$(txt).find("div").each(function(){
+				if($(this).attr("id")=="waterfall"&&ind==0){
+					hmt = $(this).html();
+					if($(this).children().length>1){
+						return false;
+					}
+					return true;
+				}
+				if($(this).attr("id")=="waterfall"&&ind==1){
+					hmt = $(this).html();
+					return false;
+				}
+			});
+			var page_html = "";
+			var li_html_active = '<li class="active"><a class = "accl" data="cpno" fun="returnPageNo" href="/page/cpno">cpno</a></li>';
+			var preLiHtml = '<li><a class = "accl"  data="cpno" fun="returnPageNo" id="pre_page">上一頁</a></li>';
+			var nextLiHtml = '<li><a class = "accl"  data="cpno" fun="returnPageNo" id="nex_page">下一頁</a></li>';
+			var oneLiHtml = '<li><a class = "accl"  data="1" fun="returnPageNo">1</a></li>';
+			$(txt).find("ul").each(function(){
+				if($(this).hasClass("pagination-lg")){
+					var pageli = $(this).children();
+					var pageliLeng = pageli.length;
+					var pre = $(pageli[0]).text().indexOf("一頁")>0;
+					if(pre){preLiHtml=preLiHtml.replace(/cpno/g,pageno-1);page_html+=preLiHtml}
+					var currli = li_html_active.replace(/cpno/g,pageno);
+					
+					if(pageno!=1){
+						page_html += oneLiHtml;
+					}
+					page_html += currli;
+					var lastLi = $(pageli[pageliLeng-1]);
+					if(lastLi.parent().hasClass('active')){
+						return false;
+					}
+					if(lastLi.text().indexOf("下一頁")>=0){
+						var lp = lastLi.prev().text();
+						page_html += ('<li><a class = "accl"  data="'+lp+'" fun="returnPageNo">'+lp+'</a></li>');
+						nextLiHtml = nextLiHtml.replace(/cpno/g,pageno+1);
+						page_html+=nextLiHtml;
+					}
+					return false;
+				}
+			});
+			hmt = hmt.replace(/<br>/g,"</span>");
+			hmt = hmt.replace(/<span>/g,"<span><span class='title_span'>");
+			$("#waterfall").append(hmt);
+			$('#waterfall').masonry({
+            	itemSelector: ".item",
+	            isAnimated: false,
+	            isFitWidth: true
+	        });
+	        $("#ul_page").html(page_html);
+	        $("body").append('<footer class="footer"><div class="container-fluid"><p>&nbsp;&nbsp;contact us at cailiu@protonmail.com</p></div></footer>');
+			layer.close(0);
+		}
+       $(".hidden-ele").show();
+       localutil.del("pageno");
+    })(mui,naxhr,jQuery);
+
+</script>
+
+<script type="text/javascript" src="../pathjs/a_click.js" ></script>
+</body>
+</html>

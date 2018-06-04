@@ -1,0 +1,202 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>警告</title>
+	<style>
+		.adultWarning {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: fixed;
+  
+    left: 0;
+    z-index: 9999;
+}
+.adultWarning .adult_content .adult_r p.point {
+    font-size: 7.5vw;
+    line-height: 12vw;
+    color: #f3832d;
+    margin: 5vw 0 0 0;
+}
+.adultWarning .adult_content .adult_l img {
+    width: 54vw;
+    margin: auto;
+}
+
+.adultWarning img {
+    display: block;
+    width: 100%;
+}
+.adultWarning .adult_content .adult_r p {
+    font-size: 4.6vw;
+    line-height: 7vw;
+    color: #4c4c4c;
+    font-weight: bold;
+    text-align: center;
+}
+.adultWarning .adult_content .adult_r .chk_btns a.adult_yes {
+    background: #e95656;
+    float: left;
+}
+.adultWarning .adult_content .adult_r .chk_btns a {
+    display: block;
+    font-size: 4.7vw;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2vw 18vw;
+}
+.adultWarning .adult_content .adult_r .chk_btns a.adult_no {
+    background: #848484;
+    float: right;
+}
+</style>
+</head>
+<body style="background-image: url(images/timg.jpg) ;background-size:100% 	">
+	
+		
+
+	
+		
+
+		<div class="adultWarning" style="display: block;opacity: 0.8;">
+		<div class="adult_content" style=" margin-top: 250px;">
+			<a href="javascript:Stage.r18WarningClose();" class="adultWarningClose"></a>
+			<div class="adult_l">
+				<img src="https://news.gamme.com.tw/imgs/adultWarning_icon.png" alt="18禁">
+			</div>
+			<div class="adult_r">
+				<p class="point">警告！您滿18歲了嗎？</p>
+				<p>本網站部分內容，<br>限年滿18歲以上<br>或達當地國家法定年齡人士閱讀。</p>
+				<br /><br />
+				<div class="chk_btns">
+					<a href="" class="adult_yes">YES</a>
+					<a href="" class="adult_no">NO</a>
+				</div>
+				<!--<div class="notagain">
+					<input id="adult_notagain" type="checkbox">
+					<label for="adult_notagain">不再提醒</label>
+				</div>-->
+			</div>
+		</div><!-- adult_content end -->
+	</div><!-- adultWarning end -->
+		<!-- wrap end -->
+	
+</body>
+
+
+<script type="text/javascript" src="js/mui.min.js" ></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="js/crypt.js" ></script>
+<script type="text/javascript" src="js/cache.js"></script>
+<script type="text/javascript" src="js/naxhr.js"></script>
+<script type="text/javascript" src="js/mobile/layer.js" ></script>
+<script type="text/javascript">
+	var timeUrl = "http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp";
+	var configUrl = "http://my.nphoto.net/wuyifang/";
+	layer.open({type: 2});
+	 /*layer.open({
+		  content: '未激活的账户一天内最多只能看1次',
+		  style:'height:250px',
+		  btn: '马上激活',
+		  shadeClose: false,
+		  yes: function(){
+		  	window.location.href="login.html";
+		  }
+		});*/
+	(function($m,xhr,cache,$,crypt,layer){
+		
+		//callTime('{"api":"mtop.common.getTimestamp","v":"*","ret":["SUCCESS::接口调用成功"],"data":{"t":"1518707405224"}}');
+		//callConfig(jsontxt);
+	
+		$m.plusReady(function() {
+				
+				xhr.send({
+						url:configUrl,
+						callback:callConfig
+					});
+				
+				//$(".adult_yes").
+			});
+			$m('body').on('tap', 'a', function() {
+				if($(this).hasClass("adult_yes")){
+					/*xhr.send({
+						url:timeUrl,
+						callback:callTime
+						
+					});
+					setTimeout("console.log('seelp')",2000);
+					var checkOnlineTime = cache.get("checkOnlineTime");
+					if(checkOnlineTime){
+							
+					}else{
+						alert("手机时间不正确，请调整");
+						return;
+					}*/
+					
+					var onlineConfig = cache.getJSON("onlineConfig");
+					if(onlineConfig.available){
+						
+						window.location.href="index.html";
+//						var ws=plus.webview.currentWebview();
+//						plus.webview.show(ws);
+						return;
+					}
+					//console.log("onlineConfig.available:"+onlineConfig.available);
+					alert("服务不可用，请联系"+onlineConfig.contact);
+					return;
+				}else{
+					plus.runtime.quit();
+				}
+			});
+		function callTime(txt,url){
+			var json = JSON.parse(txt);
+			var a = parseInt(json.data.t);
+			var now = new Date().getTime();
+			var fu = now - a;
+			if(fu<0){
+				fu = fu * (-1);
+			}
+			
+			if(fu<1000*60*30){
+				cache.set("checkOnlineTime",true,1000*60*60*3);//3个小时
+			}else{
+				alert("手机时间不正确，请调整");
+				return;
+			}
+		}
+		function callConfig(responseTxt,url){
+			layer.close(0);
+			var config = "";
+			var p = $(responseTxt).find("table").each(function(){
+				if($(this).hasClass("commentPostTable")){
+					var p = $(this).find("p").get(1);
+					config = $(p).html();
+					return true;
+				}
+			});
+			if(config){
+				
+			}else{
+				
+				return false;
+			}
+			var configStr = crypt.decode(config);
+			console.log("configStr:"+configStr);
+			var jsonConfig = JSON.parse(configStr);
+			cache.set("onlineConfig",configStr,1000*60*60*3);
+			localStorage.setItem("turn_url",jsonConfig.initUrl);
+			var parser = document.createElement('a');    
+			parser.href = jsonConfig.initUrl; 
+			/*alert(parser.protocol);
+			alert(parser.hostname);
+			alert(parser.port);*/
+			localStorage.setItem("turn_host",parser.protocol+"//"+parser.hostname);
+			
+		}
+	})(mui, naxhr,cache,jQuery,crypt,layer);
+</script>
+
+</html>
