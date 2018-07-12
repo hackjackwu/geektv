@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link href="../css/mui.min.css"rel="stylesheet" />
+		<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+		<style>
+			body{
+				background-color: #EEEEEB;
+				color:#000;
+				touch-action: none;
+			}
+			.mui-scroll{
+				margin: 5px 0px 5px 0px;
+			}
+			.mui-bar-nav.mui-bar .mui-icon {
+    			margin-right: 1px;
+    		}
+    		.mui-bar-nav.mui-bar .mui-title{
+    			left: -100px;
+    			color:#fff;
+    		}
+    		.mui-bar-nav.mui-bar a{
+    			    color: #fff;
+    		}
+    		.mui-bar{
+    			background-color: #333;
+    		}
+    		.title {
+				margin: 35px 15px 10px;
+			}
+			.mui-scroll-wrapper{
+				font-size: 14px;
+			    margin-top: 0;
+			}
+			.mui-navigate-right i{
+				font-size:24px;
+			}
+			.mui-table-view-cell {
+   				padding: 20px 15px;
+   				font-size: 18px;
+   				vertical-align:middle;
+    		}
+    		
+    		.mui-table-view:before {
+    			    height: 0px;
+    		}
+    		.item{margin: 3px 3px 3px 3px;}
+    		.item-li{
+    			display: -webkit-box;
+    			color: #000000;
+    		}
+    		.photo-frame{
+    			font-size: 0;
+    			width: 30%;
+    		}
+    		.item img{
+    			    width: 99%;
+    			box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+			    display: block;
+			    margin: 0 auto 1em;
+    		}
+    		
+    		.photo-info{
+    			width: 68%;
+    			margin-left: 8px;
+    		}
+    		 .photo-info div   {width: 96%;margin-top: 10px;}
+    		 .photo-info button {font-size: 12px;
+    		 padding: 2px 4px;color: #eee;float: right;}
+    		 .item-movie-title{
+    		 	min-height: 4rem;font-size: 16px;
+    		 	display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;
+    		 }
+    		 .item-data{font-size: 12px;}
+    		 .data-span{float: right;}
+    		 .mui-media{margin: 5px 5px 5px 5px;border:1px solid #d3d3d3;}
+    		 .item-tag{height: 2rem;}
+    		 
+    		 
+    		 .login_content {
+    		 	padding: 8px 0px 0px 10px;
+			      width: 100%;
+			      color: #097a2d;
+			      font-size: 20px;
+		    }
+
+		</style>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<a class="mui-icon mui-action-menu mui-icon-more mui-pull-right"></a>
+					<a class="mui-icon mui-action-menu mui-icon-search mui-pull-right"></a>
+					<h1 class="mui-title">div模式右滑菜单</h1>
+				</header>
+				<div id="offCanvasContentScroll"  class="mui-content mui-scroll-wrapper" >
+					<div class="mui-scroll" >
+								<div class="mui-card">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">记录</a>
+						<div class="mui-collapse-content">
+						<button type="button" class="mui-btn mui-btn-outlined">
+							默认
+						</button>
+						<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
+							操作
+						</button>
+						<button type="button" class="mui-btn mui-btn-success mui-btn-outlined">
+							成功
+						</button>
+						<button type="button" class="mui-btn mui-btn-warning mui-btn-outlined">
+							警告
+						</button>
+						<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">
+							危险
+						</button>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">历史</a>
+						<div class="mui-collapse-content">
+						<button type="button" class="mui-btn">
+						默认
+						</button>
+						<div class="mui-btn mui-btn-primary">
+							蓝色
+						</div>
+						<span class="mui-btn mui-btn-success">
+							绿色
+						</span>
+						<button type="button" class="mui-btn mui-btn-warning">
+							黄色
+						</button>
+						<button type="button" class="mui-btn mui-btn-danger">
+							红色
+						</button>
+						<button type="button" class="mui-btn mui-btn-royal">
+							紫色
+						</button>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">科技</a>
+					</li>
+				</ul>
+			</div>
+					</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+				</div>
+			</div>
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="title">收藏夹</div>
+						<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>
+						<div class="left-ul" >
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell" style="">
+								<span class="fa fa-pagelines"><a class="mui-navigate-right"></a>&nbsp;&nbsp;有碼</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-viadeo"><a class="mui-navigate-right"></a>&nbsp;&nbsp;有碼類別</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-xing"><a class="mui-navigate-right"></a>&nbsp;&nbsp;有碼女優</span>
+							</li>
+						</ul>
+						<hr />
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<span class="fa fa-houzz"><a class="mui-navigate-right"></a>&nbsp;&nbsp;無碼</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-slideshare"><a class="mui-navigate-right"></a>&nbsp;&nbsp;無碼類別</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-odnoklassniki"><a class="mui-navigate-right"></a>&nbsp;&nbsp;無碼女優</span>
+							</li>
+							</ul>
+						<hr />
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<span class="fa fa-ra"><a class="mui-navigate-right"></a>&nbsp;&nbsp;歐美</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-spotify"><a class="mui-navigate-right"></a>&nbsp;&nbsp;歐美類別</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-viadeo-square"><a class="mui-navigate-right"></a>&nbsp;&nbsp;歐美女優</span>
+							</li>
+						</div>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/naxhr.js"></script>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../js/vue.min.js"></script>
+		<script>
+			//上拉加载下拉刷新
+            mui.init(
+            	
+        	);
+			 //侧滑容器父节点
+			var offCanvasWrapper = mui('#offCanvasWrapper');
+			
+			var pageno = localStorage.getItem("pageno")||1;
+			 //主界面容器
+			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+			 //菜单容器
+			var offCanvasSide = document.getElementById("offCanvasSide");
+			 //移动效果是否为整体移动
+			var moveTogether = true;
+			 //侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+			var classList = offCanvasWrapper[0].classList;
+			offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+			
+			 //主界面和侧滑菜单界面均支持区域滚动；
+			mui('#offCanvasSideScroll').scroll({});
+			mui('#offCanvasContentScroll').scroll({});
+			 //实现ios平台原生侧滑关闭页面；
+			
+			mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+				if (mui.os.plus && mui.os.ios) {
+					plus.webview.currentWebview().setStyle({
+						'popGesture': 'none'
+					});
+				}
+				localStorage.removeItem("pageno");
+				loading = true;
+				loadPage(1);
+			});
+			
+			function loadPage(pageno){
+				var cuhost = "https://www.javbus2.pw";
+				var curl = cuhost+"/page/"+pageno;
+				naxhr.send({"url":curl,
+					"callback":loadPageCallback})
+			}
+			var tag_class = ["mui-btn-red","mui-btn-blue","mui-btn-green","mui-btn-yellow"];
+			var vueapp ;
+			var items = new Array();
+			function loadPageCallback(res){}
+			//记录状态
+			var loading=false;
+		   $(window).scroll(function() {});
+			
+			
+		</script>
+	</body>
+
+</html>

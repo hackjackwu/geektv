@@ -1,0 +1,10 @@
+{
+  "path/main.html": {
+    "resources": [
+      "path/index.html"
+    ],
+    "refer": [
+      "path/index.html"
+    ]
+  }
+}

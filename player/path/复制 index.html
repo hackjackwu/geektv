@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link href="../css/font-awesome.min.css" rel="stylesheet">
+		<style>
+			body{
+				background-color: #EEEEEB;
+				color:#000;
+				touch-action: none;
+			}
+			.mui-scroll{
+				margin: 5px 0px 5px 0px;
+			}
+			.mui-bar-nav.mui-bar .mui-icon {
+    			margin-right: 1px;
+    		}
+    		.mui-bar-nav.mui-bar .mui-title{
+    			left: -100px;
+    			color:#fff;
+    		}
+    		.mui-bar-nav.mui-bar a{
+    			    color: #fff;
+    		}
+    		.mui-bar{
+    			background-color: #333;
+    		}
+    		.title {
+				margin: 35px 15px 10px;
+			}
+			.mui-scroll-wrapper{
+				font-size: 14px;
+			    margin-top: 0;
+			}
+			.mui-navigate-right i{
+				font-size:24px;
+			}
+			.mui-table-view-cell {
+   				padding: 20px 15px;
+   				font-size: 18px;
+   				vertical-align:middle;
+    		}
+    		
+    		.mui-table-view:before {
+    			    height: 0px;
+    		}
+    		.item{margin: 3px 3px 3px 3px;}
+    		.item-li{
+    			display: -webkit-box;
+    			color: #000000;
+    		}
+    		.photo-frame{
+    			font-size: 0;
+    			width: 30%;
+    		}
+    		.item img{
+    			    width: 99%;
+    			box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+			    display: block;
+			    margin: 0 auto 1em;
+    		}
+    		
+    		.photo-info{
+    			width: 68%;
+    			margin-left: 8px;
+    		}
+    		 .photo-info div   {width: 96%;margin-top: 10px;}
+    		 .photo-info button {font-size: 12px;
+    		 padding: 2px 4px;color: #eee;float: right;}
+    		 .item-movie-title{
+    		 	min-height: 4rem;font-size: 16px;
+    		 	display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;
+    		 }
+    		 .item-data{font-size: 12px;}
+    		 .data-span{float: right;}
+    		 .mui-media{margin: 5px 5px 5px 5px;border:1px solid #d3d3d3;}
+    		 .item-tag{height: 2rem;}
+    		 
+    		 
+    		 .login_content {
+    		 	padding-left: 10px;
+			      width: 100%;
+			      color: #097a2d;
+			      font-size: 20px;
+		    }
+
+		</style>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<a class="mui-icon mui-action-menu mui-icon-more mui-pull-right"></a>
+					<a class="mui-icon mui-action-menu mui-icon-search mui-pull-right"></a>
+					<h1 class="mui-title">div模式右滑菜单</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="page_content" id="v_page">
+							<div class="login_content" ><i class="fa fa-tripadvisor">&nbsp;&nbsp;1</i></div>
+							<ul class="mui-table-view">
+						    <li v-for="movie in items"  class="mui-media"><div class="item item-li" >
+			                    <div class="item photo-frame" style="">
+			                        <img :src="movie.photeCover" :title="movie.title">
+			                    </div>                     
+								<div class="item photo-info" style="">                                   
+									<div class="item-movie-title" style="">{{movie.title}}<br /></div>
+									<div class="item-tag">
+			                            <button style="margin-right: 10px;" v-for="(index,tag) in movie.tag" 
+			                            	 class="mui-btn mui-btn-blue" disabled="disabled"  
+			                            	title="">{{tag.txt}}{{tag.sty}}</div></span>                        	
+									<div class="item-data"><span>{{movie.code}}</span><span class="data-span" style="">{{movie.time}}</span></div>  
+								</div>
+				            	</div>
+						    </li>
+							</ul>
+       	 				</div>
+            
+
+					
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+			
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="title">收藏夹</div>
+						
+						<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>
+						<div class="left-ul" >
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell" style="">
+								<span class="fa fa-pagelines"><a class="mui-navigate-right"></a>&nbsp;&nbsp;有碼</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-viadeo"><a class="mui-navigate-right"></a>&nbsp;&nbsp;有碼類別</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-xing"><a class="mui-navigate-right"></a>&nbsp;&nbsp;有碼女優</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-houzz"><a class="mui-navigate-right"></a>&nbsp;&nbsp;無碼</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-slideshare"><a class="mui-navigate-right"></a>&nbsp;&nbsp;無碼類別</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-odnoklassniki"><a class="mui-navigate-right"></a>&nbsp;&nbsp;無碼女優</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-ra"><a class="mui-navigate-right"></a>&nbsp;&nbsp;歐美</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-spotify"><a class="mui-navigate-right"></a>&nbsp;&nbsp;歐美類別</span>
+							</li>
+							<li class="mui-table-view-cell">
+								<span class="fa fa-viadeo-square"><a class="mui-navigate-right"></a>&nbsp;&nbsp;歐美女優</span>
+							</li>
+						</div>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/naxhr.js"></script>
+		
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../js/vue.min.js"></script>
+		<script>
+			//上拉加载下拉刷新
+            mui.init(
+            	/*{
+                pullRefresh: {
+                    container: '#offCanvasContentScroll',
+                    down: {
+                        contentdown: "下拉可以刷新", //可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+                        contentover: "释放立即刷新", //可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+                        contentrefresh: "下拉刷新…", //可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+                        auto: false,//可选,默认false.首次加载自动下拉刷新一次
+                        callback: pulldownRefresh
+                    },
+                    up: {
+                        contentrefresh: '上拉加载...',
+                        contentnomore:'我是有底线的',
+                        callback: pullupRefresh
+ 
+                    }
+                }
+            }*/
+        	);
+			 //侧滑容器父节点
+			var offCanvasWrapper = mui('#offCanvasWrapper');
+			
+			var pageno = localStorage.getItem("pageno")||1;
+			 //主界面容器
+			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+			 //菜单容器
+			var offCanvasSide = document.getElementById("offCanvasSide");
+			 //移动效果是否为整体移动
+			var moveTogether = true;
+			 //侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+			var classList = offCanvasWrapper[0].classList;
+			offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+			
+			document.querySelector('.mui-off-canvas-wrap').addEventListener('shown',function (event) {
+			  //document.querySelector('.mui-off-canvas-left').style.visibility = 'visibility';
+			  //document.querySelector('.mui-off-canvas-left').style.display='block';
+			  console.log("shown")
+			});
+			document.querySelector('.mui-off-canvas-wrap').addEventListener('hidden',function (event) {
+			 	//document.querySelector('.mui-off-canvas-left').style.visibility = 'hidden';
+			 	console.log("hidden")
+			})
+			 //主界面和侧滑菜单界面均支持区域滚动；
+			mui('#offCanvasSideScroll').scroll();
+			mui('#offCanvasContentScroll').scroll();
+			 //实现ios平台原生侧滑关闭页面；
+			
+			mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+				if (mui.os.plus && mui.os.ios) {
+					plus.webview.currentWebview().setStyle({
+						'popGesture': 'none'
+					});
+				}
+				loadPage();
+			});
+			function loadPage(){
+				var pageno = localStorage.getItem("pageno")||1;
+				var cuhost = "https://www.javbus2.pw";
+				var curl = cuhost+"/page/"+pageno;
+				naxhr.send({"url":curl,
+					"callback":loadPageCallback})
+			}
+			var tag_class = ["mui-btn-blue","mui-btn-blue","mui-btn-green","mui-btn-yellow"];
+			function loadPageCallback(res){
+				//console.log(res.txt);
+				var txt = $.parseHTML(res.txt);
+				var movieList = new Array();
+				//$(txt).find("a").each(function(){console.log($(this).html())});
+				$(txt).find("a").each(function(){
+					if($(this).hasClass("movie-box")){
+						var movieItem = {};
+						movieItem.murl=$(this).attr("href");
+						var img = $(this).find("img")[0];
+						movieItem.photeCover=img.src;
+						movieItem.title = img.title;
+						var tag = new Array();
+						var i = 0;
+						 $(this).find("button").each(function(){
+						 	var tagItem = {};
+						 	tagItem.txt=$(this).text();
+						 	tagItem.sty = tag_class[i%4];
+						 	console.log(tagItem.sty);
+						 	tag.push(tagItem);
+						 });
+						 movieItem.tag=tag;
+						movieItem.code =$(this).find("date")[0].innerText;
+						movieItem.time =$(this).find("date")[1].innerText;
+						movieList.push(movieItem);
+					}
+				});
+				//console.log(JSON.stringify(movieList));
+	//var movieList =			JSON.parse(' [{"murl":"https://www.javbus2.pw/DVAJ-339","photeCover":"https://pics.javcdn.pw/thumb/6mwl.jpg","title":"下着を盗もうとベランダに忍び込んだら部屋では女の子がオナニーの真っ最中で…手に持ってたパンティを被って家宅侵入レイプ！！したまでは良かったけど彼女が底無しの性欲モンスターで逆に金玉カラッポになるところまで精子を搾り取られた話 川上奈々美","tag":["今日新種"],"code":"DVAJ-339","time":"2018-07-08"},{"murl":"https://www.javbus2.pw/TG-005","photeCover":"https://pics.javcdn.pw/thumb/6o14.jpg","title":"酔って勃ちの悪い僕のチ○コを丁寧に舐めあげフェラしてくれるセフレ。るり（仮）21歳","tag":["高清","今日新種"],"code":"TG-005","time":"2018-07-06"},{"murl":"https://www.javbus2.pw/GVG-710","photeCover":"https://pics.javcdn.pw/thumb/6nzo.jpg","title":"ノーブラ貧乳女子の恥ずかしい敏感乳首 上川星空","tag":["高清","今日新種"],"code":"GVG-710","time":"2018-07-04"},{"murl":"https://www.javbus2.pw/GVG-709","photeCover":"https://pics.javcdn.pw/thumb/6nzs.jpg","title":"姉犯日記 紺野ひかる","tag":["高清","今日新種"],"code":"GVG-709","time":"2018-07-04"},{"murl":"https://www.javbus2.pw/GVG-704","photeCover":"https://pics.javcdn.pw/thumb/6nzu.jpg","title":"Ma○ko Device BondageIII 鉄拘束マ○コ拷問 水川かずは","tag":["高清","今日新種"],"code":"GVG-704","time":"2018-07-04"},{"murl":"https://www.javbus2.pw/NACR-157","photeCover":"https://pics.javcdn.pw/thumb/6nxw.jpg","title":"若すぎる父の後妻 阿部栞菜","tag":["高清","今日新種"],"code":"NACR-157","time":"2018-07-01"},{"murl":"https://www.javbus2.pw/JUY-470","photeCover":"https://pics.javcdn.pw/thumb/6ipa.jpg","title":"後ろから私をメチャクチャにして…。～人妻の犯され願望を満たすバック性交～ 工藤まなみ","tag":["高清","今日新種"],"code":"JUY-470","time":"2018-03-24"},{"murl":"https://www.javbus2.pw/DIC-016","photeCover":"https://pics.javcdn.pw/thumb/6o1l.jpg","title":"J○ささやき淫語FUCK vol.3 ひなみれん","tag":["高清","昨日新種"],"code":"DIC-016","time":"2018-07-06"},{"murl":"https://www.javbus2.pw/ADN-174","photeCover":"https://pics.javcdn.pw/thumb/6mm0.jpg","title":"禁忌の情欲 義弟に犯されて 夏目彩春","tag":["高清","昨日新種"],"code":"ADN-174","time":"2018-06-08"},{"murl":"https://www.javbus2.pw/GVG-707","photeCover":"https://pics.javcdn.pw/thumb/6nzq.jpg","title":"ホームステイでやってきた黒人のデカマラに発情した母娘 本庄優花/さくらはる","tag":["前日新種"],"code":"GVG-707","time":"2018-07-04"},{"murl":"https://www.javbus2.pw/SSNI-252","photeCover":"https://pics.javcdn.pw/thumb/6mmz.jpg","title":"あなたの目の前で犯され続ける私 あやみ旬果","tag":["高清","前日新種"],"code":"SSNI-252","time":"2018-06-08"},{"murl":"https://www.javbus2.pw/MKMP-221","photeCover":"https://pics.javcdn.pw/thumb/6iwg.jpg","title":"極上おもてなし風俗フルコース 沙月とわ","tag":["高清","前日新種"],"code":"MKMP-221","time":"2018-04-13"},{"murl":"https://www.javbus2.pw/ATID-299","photeCover":"https://pics.javcdn.pw/thumb/6jbf.jpg","title":"美女監禁中 神宮寺ナオ","tag":["高清","前日新種"],"code":"ATID-299","time":"2018-04-07"},{"murl":"https://www.javbus2.pw/GVG-705","photeCover":"https://pics.javcdn.pw/thumb/6nzp.jpg","title":"アナルデリバリー 浅田結梨のアナルお貸しします。","tag":["3天前新種"],"code":"GVG-705","time":"2018-07-04"},{"murl":"https://www.javbus2.pw/GVG-703","photeCover":"https://pics.javcdn.pw/thumb/6nzy.jpg","title":"禁断介護 初美りん","tag":["3天前新種"],"code":"GVG-703","time":"2018-07-04"}]');
+				var vueapp = new Vue({
+					el: '#v_page',
+					data:{"items":movieList}
+				});
+				console.log($("#v_page").html());
+			}
+			 mui.init(
+            	{
+                pullRefresh: {
+                    container: '#mui-scroll',
+                    down: {
+                        contentdown: "下拉可以刷新", //可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+                        contentover: "释放立即刷新", //可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+                        contentrefresh: "下拉刷新…", //可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+                        auto: false,//可选,默认false.首次加载自动下拉刷新一次
+                        callback: pulldownRefresh
+                    },
+                    up: {
+                        contentrefresh: '上拉加载...',
+                        contentnomore:'我是有底线的',
+                        callback: pullupRefresh
+ 
+                    }
+                }
+            }
+        	);
+			
+			
+            /**
+              * 上拉加载
+              */
+            function pullupRefresh() {
+                setTimeout(function () {
+                    mui('#offCanvasContentScroll').pullRefresh().endPullupToRefresh(false); //参数为true代表没有更多数据了。
+                    //getData();//ajax
+                    console.log("pullupRefresh");
+                }, 500);
+
+            }
+            //下拉刷新
+            function pulldownRefresh() {
+               console.log("pulldownRefresh");setTimeout(function () {
+                    mui('#offCanvasContentScroll').pullRefresh().endPullupToRefresh(false); //参数为true代表没有更多数据了。
+                    //getData();//ajax
+                     console.log("pulldownRefresh");
+                }, 500);
+            }
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link href="../css/mui.min.css"rel="stylesheet" />
+		<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+		<style>
+			body{
+				background-color: #EEEEEB;
+				color:#000;
+				touch-action: none;
+			}
+			.mui-scroll{
+				margin: 5px 0px 5px 0px;
+			}
+			.mui-bar-nav.mui-bar .mui-icon {
+    			margin-right: 1px;
+    		}
+    		.mui-bar-nav.mui-bar .mui-title{
+    			left: -100px;
+    			color:#fff;
+    		}
+    		.mui-bar-nav.mui-bar a{
+    			    color: #fff;
+    		}
+    		.mui-bar{
+    			background-color: #333;
+    		}
+    		.title {
+				margin: 35px 15px 10px;
+			}
+			.mui-scroll-wrapper{
+				font-size: 14px;
+			    margin-top: 0;
+			}
+			.mui-navigate-right i{
+				font-size:24px;
+			}
+			.mui-table-view-cell {
+   				padding: 20px 15px;
+   				font-size: 18px;
+   				vertical-align:middle;
+    		}
+    		
+    		.mui-table-view:before {
+    			    height: 0px;
+    		}
+    		.item{margin: 3px 3px 3px 3px;}
+    		.item-li{
+    			display: -webkit-box;
+    			color: #000000;
+    		}
+    		.photo-frame{
+    			font-size: 0;
+    			width: 30%;
+    		}
+    		.item img{
+    			    width: 99%;
+    			box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+			    display: block;
+			    margin: 0 auto 1em;
+    		}
+    		
+    		.photo-info{
+    			width: 68%;
+    			margin-left: 8px;
+    		}
+    		 .photo-info div   {width: 96%;margin-top: 10px;}
+    		 .photo-info button {font-size: 12px;
+    		 padding: 2px 4px;color: #eee;float: right;}
+    		 .item-movie-title{
+    		 	min-height: 4rem;font-size: 16px;
+    		 	display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;
+    		 }
+    		 .item-data{font-size: 12px;}
+    		 .data-span{float: right;}
+    		 .mui-media{margin: 5px 5px 5px 5px;border:1px solid #d3d3d3;}
+    		 .item-tag{height: 2rem;}
+    		 
+    		 
+    		 .login_content {
+    		 	padding: 8px 0px 0px 10px;
+			      width: 100%;
+			      color: #097a2d;
+			      font-size: 20px;
+		    }
+
+		</style>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<a class="mui-icon mui-action-menu mui-icon-more mui-pull-right"></a>
+					<a class="mui-icon mui-action-menu mui-icon-search mui-pull-right"></a>
+					<h1 class="mui-title">div模式右滑菜单</h1>
+				</header>
+				<div id="offCanvasContentScroll"  class="mui-content mui-scroll-wrapper" >
+					<div class="mui-scroll" >
+						<div class="page_content" id="v_page" >
+							<ul class="mui-table-view"  v-for="item in items">
+							<li class="page-li" :id="'page-li-'+item.pageno"><div class="login_content" ><i class="fa fa-tripadvisor">&nbsp;&nbsp;{{item.pageno}}</i></div></li>
+						    <li  v-for="movie in item.movies" class="mui-media"><div class="item item-li" >
+			                    <div class="item photo-frame" style="">
+			                        <img :src="movie.photeCover" :title="movie.title">
+			                    </div>                     
+								<div class="item photo-info" style="">                                   
+									<div class="item-movie-title" style="">{{movie.title}}<br /></div>
+									<div class="item-tag">
+			                            <button style="margin-right: 10px;" v-for="tag in movie.tags" 
+			                            	:class="tag.sty+ ' mui-btn mui-btn-primary'" disabled="disabled"  
+			                            	title="">{{tag.txt}}</div></span>                        	
+									<div class="item-data"><span>{{movie.code}}</span><span class="data-span" style="">{{movie.time}}</span></div>  
+								</div>
+				            	</div>
+						    </li>
+							</ul>
+					</div>
+					
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+			</div>
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="title">收藏夹</div>
+						<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>
+						<div class="left-ul" >
+								<!--
+                                	作者：wuyifang@protonmail.com
+                                	时间：2018-07-10
+                                	描述：start
+                                -->
+                                <ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+									<li class="mui-table-view-cell" style="">
+										<span class="fa fa-pagelines">&nbsp;&nbsp;首页</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="fa fa-viadeo">&nbsp;&nbsp;中文经典</span>
+										<ul  class="mui-table-view mui-table-view-chevron mui-table-view-inverted ul-ul">
+											<li class="mui-table-view-cell"><a target="_blank" href="http://www.luoxia.com/fushengliuji/" title="浮生六记"><strong>浮生六记</strong></a></li>
+											<li class="mui-table-view-cell"><a target="_blank" href="http://www.luoxia.com/wanli/" title="万历十五年 黄仁宇">万历十五年</a></li>
+											<li class="mui-table-view-cell"><a target="_blank" href="http://www.luoxia.com/pingfan/" title="平凡的世界">平凡的世界</a></li>
+											<li class="mui-table-view-cell"><a target="_blank" href="http://www.luoxia.com/weicheng/" title="围城小说">围城</a></li>
+										</ul>	
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="fa fa-xing">&nbsp;&nbsp;外国名著</span>
+									</li>
+								</ul>
+                                <!--
+                                	作者：wuyifang@protonmail.com
+                                	时间：2018-07-10
+                                	描述：end
+                                -->
+						</div>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/naxhr.js"></script>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../js/vue.min.js"></script>
+		<script>
+			//上拉加载下拉刷新
+            mui.init(
+            	
+        	);
+			 //侧滑容器父节点
+			var offCanvasWrapper = mui('#offCanvasWrapper');
+			
+			var pageno = localStorage.getItem("pageno")||1;
+			 //主界面容器
+			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+			 //菜单容器
+			var offCanvasSide = document.getElementById("offCanvasSide");
+			 //移动效果是否为整体移动
+			var moveTogether = true;
+			 //侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+			var classList = offCanvasWrapper[0].classList;
+			offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+			
+			 //主界面和侧滑菜单界面均支持区域滚动；
+			mui('#offCanvasSideScroll').scroll({});
+			mui('#offCanvasContentScroll').scroll({});
+			 //实现ios平台原生侧滑关闭页面；
+			
+			mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+				if (mui.os.plus && mui.os.ios) {
+					plus.webview.currentWebview().setStyle({
+						'popGesture': 'none'
+					});
+				}
+				localStorage.removeItem("pageno");
+				loading = true;
+				loadPage(1);
+			});
+			
+			function loadPage(pageno){
+				var cuhost = "https://www.javbus2.pw";
+				var curl = cuhost+"/page/"+pageno;
+				naxhr.send({"url":curl,
+					"callback":loadPageCallback})
+			}
+			var tag_class = ["mui-btn-red","mui-btn-blue","mui-btn-green","mui-btn-yellow"];
+			var vueapp ;
+			var items = new Array();
+			function loadPageCallback(res){
+				//console.log(res.txt);
+				var txt = $.parseHTML(res.txt);
+				var movieList = new Array();
+				//$(txt).find("a").each(function(){console.log($(this).html())});
+				var item = {};
+				$(txt).find("a").each(function(){});
+				item.movies = movieList;
+				item.pageno=localStorage.getItem("pageno")||1;
+				items.push(item);
+				localStorage.setItem("items",items);
+				if(vueapp){
+				}else{
+					vueapp = new Vue({
+					el: '#v_page',
+					data:{"items":items}
+					});
+				}
+				loading = false;
+			}
+			//记录状态
+			var loading=false;
+		   $(window).scroll(function() {
+			   	if(loading===false){
+			   		 //获取当前加载更多按钮距离顶部的距离
+				    var bottomsubmit = $("li:last").offset().top;
+				    //获取当前页面底部距离顶部的高度距离
+				    var nowtop = $(document).scrollTop()+$(window).height();
+			   		//console.log("bottomsubmit:"+bottomsubmit);
+			   		//console.log("nowtop:"+nowtop);
+			   		if(nowtop-bottomsubmit>140){
+			   			loading = true;
+			   			var pageno = localStorage.getItem("pageno");
+			   			if(pageno==null){pageno=1;}else{pageno=parseInt(pageno);}
+			   			localStorage.setItem("pageno",pageno+1);
+			   			loadPage(pageno+1);
+			   		}
+			   	}
+		   });
+			
+			
+		</script>
+	</body>
+
+</html>

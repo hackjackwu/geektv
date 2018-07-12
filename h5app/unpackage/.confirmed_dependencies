@@ -1,0 +1,7 @@
+{
+	"index.html": {
+		"refer": [
+			"plus/xhr.html"
+		]
+	}
+}
